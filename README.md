@@ -1,4 +1,4 @@
 # weather-app
 
 ## TODO:
-[ ] Secure API key
+[x] Secure API key
