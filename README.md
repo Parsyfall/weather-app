@@ -6,4 +6,4 @@
 - [ ] Run script on shell startup
 
 ### Optional
-- [ ]  Store emoji in an associative vector
+- [ ]  Use an associative vector for emoji
