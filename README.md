@@ -7,3 +7,4 @@
 
 ### Optional
 - [ ]  Use an associative vector for emoji
+- [ ]  Use IP instead of coordinates
