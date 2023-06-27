@@ -1,7 +1,7 @@
 # weather-app
 
 ## TODO:
-- [ ] Secure API key
+- [ ] Secure API key to safely transfer to others
 - [ ] Remove API key from Git log
 - [ ] Run script on shell startup
 
