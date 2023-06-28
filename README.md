@@ -8,3 +8,4 @@
 ### Optional
 - [ ]  Use an associative vector for emoji
 - [ ]  Use IP instead of coordinates
+- [ ]  Squash all "Update README" commits into one
