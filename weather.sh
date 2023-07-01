@@ -39,7 +39,7 @@ case $wtrStatus in
 		echo ${emoji[snow]}
 		;;
 	"Fog")
-		echo ${emoji[snow]}
+		echo ${emoji[fog]}
 		;;
 	*)
 		echo ${emoji[sad]}
