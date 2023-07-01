@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apiKey=
+apiKey=$API_KEY
 locCoord="46.06667,23.58333"
 curl "http://api.weatherapi.com/v1/current.json?key=$apiKey&q=$locCoord" > w.json
 
