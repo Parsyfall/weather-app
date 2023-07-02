@@ -1,7 +1,12 @@
 #!/bin/bash
 
+if [[ -z "${API_KEY}" ]]; then
+	echo "API_KEY isn't sett"
+	exit -1
+fi
+
 apiKey=$API_KEY
-locCoord="46.06667,23.58333"
+locCoord="46.06667,23.58333" 	# Alba Iulia
 curl "http://api.weatherapi.com/v1/current.json?key=$apiKey&q=$locCoord" > w.json
 
 wtrStatus=$( cat w.json | jq -r '.current.condition.text' )
@@ -45,4 +50,4 @@ case $wtrStatus in
 		echo ${emoji[sad]}
 esac
 
-rm w.json
+#rm w.json
