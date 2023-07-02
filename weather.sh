@@ -9,6 +9,7 @@ apiKey=$API_KEY
 locCoord="46.06667,23.58333" 	# Alba Iulia
 curl "http://api.weatherapi.com/v1/current.json?key=$apiKey&q=$locCoord" > w.json
 
+
 wtrStatus=$( jq -r '.current.condition.text' < w.json )
 city=$( jq -r '.location.name' < w.json )
 declare -A emoji=(
@@ -22,7 +23,6 @@ declare -A emoji=(
 	[thunderstorm]=🌩
 	[fog]=🌫
 )
-
 
 #test -z $wtrStatus  && wtrEmoji="Something went wrong"
 wtrEmoji="" 
@@ -55,5 +55,6 @@ esac
 
 echo "Hello ${HOSTNAME},"
 echo "Current weather in ${city}: ${wtrStatus} ${wtrEmoji}"
+
 
 rm w.json
