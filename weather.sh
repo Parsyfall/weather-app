@@ -7,11 +7,10 @@ fi
 
 apiKey=$API_KEY
 locCoord="46.06667,23.58333" 	# Alba Iulia
-curl "http://api.weatherapi.com/v1/current.json?key=$apiKey&q=$locCoord" > w.json
+wtrJSON=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$apiKey&q=$locCoord")
 
-
-wtrStatus=$( jq -r '.current.condition.text' < w.json )
-city=$( jq -r '.location.name' < w.json )
+wtrStatus=$( jq -r '.current.condition.text' <<< $wtrJSON )
+city=$( jq -r '.location.name' <<< $wtrJSON )
 declare -A emoji=(
 	[happy]=😀
 	[sad]=🙁
@@ -23,6 +22,7 @@ declare -A emoji=(
 	[thunderstorm]=🌩
 	[fog]=🌫
 )
+
 
 #test -z $wtrStatus  && wtrEmoji="Something went wrong"
 wtrEmoji="" 
@@ -36,10 +36,12 @@ case $wtrStatus in
 	"Patchy light rain" | "Patchy light drizzle" | "Light drizzle")
 		wtrEmoji=${emoji[sunshower]}
 		;;
-	"Light rain" | "Moderate rain at times" | "Moderate rain")
+	"Light rain" | "Moderate rain at times" | "Moderate rain" \
+	| "Moderate or heavy rain shower" |  "Torrential rain shower")
 		wtrEmoji=${emoji[rain]}
 		;;
-	"Moderate or heavy rain with thunder" | "Patchy light rain with thunder")
+	"Moderate or heavy rain with thunder" | "Patchy light rain with thunder" \
+	| "Thundery outbreaks possible")
 		wtrEmoji=${emoji[thunderstorm]}
 		;;
 	"Light snow" | "Patchy light snow" | "Patchy moderate snow" | "Moderate snow" \
@@ -56,5 +58,3 @@ esac
 echo "Hello ${HOSTNAME},"
 echo "Current weather in ${city}: ${wtrStatus} ${wtrEmoji}"
 
-
-rm w.json
