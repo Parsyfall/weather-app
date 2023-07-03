@@ -2,6 +2,7 @@
 
 if [[ -z "${API_KEY}" ]]; then
 	wtrEmoji="API_KEY isn't sett"
+ 	echo "Api_Key is not set";
 	exit -1
 fi
 
@@ -53,7 +54,7 @@ case $wtrStatus in
 		wtrEmoji=${emoji[sad]}
 esac
 
-echo "Hello ${HOSTNAME},"
+echo "Hello ${USER},"
 echo "Current weather in ${city}: ${wtrStatus} ${wtrEmoji}"
 
 
