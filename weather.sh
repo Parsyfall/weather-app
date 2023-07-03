@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -z "${API_KEY}" ]]; then
-	wtrEmoji="API_KEY isn't sett"
+	#wtrEmoji="API_KEY isn't sett"
  	echo "Api_Key is not set";
 	exit -1
 fi
