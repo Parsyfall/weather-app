@@ -2,11 +2,12 @@
 
 ## TODO:
 - [ ] Secure API key to safely transfer to others
-- [ ] Remove API key from Git log
+- [x] Remove API key from Git log
+    - Removed API key but with of all files that contained it
 - [x] Run script on shell startup
 - [ ] Make a script to prepare machine to flawlessly run the app (api key, curl, jq ...) aka installer
 
 ### Optional
 - [x]  Use an associative vector for emoji
 - [ ]  Use IP instead of coordinates
-- [ ]  Squash all "Update README" commits into one
+- [x]  Squash all "Update README" commits into one
