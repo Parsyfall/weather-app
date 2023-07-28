@@ -7,8 +7,9 @@ if [[ -z "${API_KEY}" ]]; then
 fi
 
 apiKey=$API_KEY
-locCoord="46.06667,23.58333" 	# Alba Iulia
-wtrJSON=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$apiKey&q=$locCoord")
+#locCoord="46.06667,23.58333" 	# Alba Iulia
+locIP=$(curl -s ifconfig.me)
+wtrJSON=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$apiKey&q=$locIP")
 
 wtrStatus=$( jq -r '.current.condition.text' <<< $wtrJSON )
 city=$( jq -r '.location.name' <<< $wtrJSON )
@@ -58,4 +59,3 @@ esac
 
 echo "Hello ${USER},"
 echo "Current weather in ${city}: ${wtrStatus} ${wtrEmoji}"
-
