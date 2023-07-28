@@ -11,6 +11,12 @@ apiKey=$API_KEY
 locIP=$(curl -s ifconfig.me)
 wtrJSON=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$apiKey&q=$locIP")
 
+if [ $? -ne 0 ]; then
+	echo 'No internet connection'
+	exit -1
+fi
+
+
 wtrStatus=$( jq -r '.current.condition.text' <<< $wtrJSON )
 city=$( jq -r '.location.name' <<< $wtrJSON )
 declare -A emoji=(
