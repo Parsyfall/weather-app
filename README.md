@@ -10,5 +10,6 @@
 
 ### Optional
 - [x]  Use an associative vector for emoji
-- [ ]  Use IP instead of coordinates
+- [x]  Use IP instead of coordinates
 - [x]  Squash all "Update README" commits into one (see squashing branch)
+- [x]  Check for internet connection
